@@ -7,9 +7,11 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
-      
-      {/* Background Effects */}
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300"
+    >
+      {/* Background Blobs */}
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-emerald-400/20 dark:bg-emerald-600/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-3xl opacity-50 animate-pulse delay-1000"></div>
 
@@ -19,11 +21,10 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-
           {/* Profile Image */}
-          <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-emerald-500 shadow-xl shadow-emerald-500/20 bg-white dark:bg-slate-800">
+          <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-emerald-500 shadow-xl shadow-emerald-500/20 bg-white">
             <img
-              src="/profile.jpg"
+              src={`${import.meta.env.BASE_URL}profile.jpg`}
               alt="Saad Fuhaid"
               className="w-full h-full object-cover"
             />
@@ -31,11 +32,11 @@ const Hero: React.FC = () => {
 
           {/* Name */}
           <h1 className="flex flex-col items-center gap-2 mb-6">
-            <span className="text-5xl md:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 dark:from-emerald-300 dark:via-teal-200 dark:to-cyan-400 pb-2 filter drop-shadow-sm">
+            <span className="text-5xl md:text-7xl font-black bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 dark:from-emerald-300 dark:via-teal-200 dark:to-cyan-400 pb-2 drop-shadow-sm">
               سعد فهيد
             </span>
 
-            <span className="text-xl md:text-3xl font-bold text-slate-600 dark:text-slate-500/80 tracking-[0.2em] uppercase">
+            <span className="text-xl md:text-3xl font-bold text-slate-600 dark:text-slate-400 tracking-[0.2em] uppercase">
               Saad Fuhaid
             </span>
           </h1>
@@ -59,7 +60,6 @@ const Hero: React.FC = () => {
 
           {/* Contact Icons */}
           <div className="flex flex-wrap justify-center gap-6 mb-12">
-            {/* LinkedIn */}
             <motion.a
               href="https://www.linkedin.com/in/s3dsu"
               target="_blank"
@@ -67,75 +67,65 @@ const Hero: React.FC = () => {
               whileHover={{ scale: 1.1, y: -5 }}
               className="flex flex-col items-center gap-2 group"
             >
-              <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg shadow-slate-200/50 dark:shadow-none group-hover:border-[#0077b5] group-hover:shadow-[#0077b5]/30 transition-all">
-                <Linkedin size={28} className="text-slate-500 dark:text-slate-400 group-hover:text-[#0077b5] transition-colors" />
+              <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg group-hover:border-[#0077b5] group-hover:shadow-[#0077b5]/30 transition-all">
+                <Linkedin size={28} className="text-slate-500 group-hover:text-[#0077b5]" />
               </div>
-              <span className="text-xs text-slate-500 dark:text-slate-500 group-hover:text-[#0077b5] transition-colors font-medium">
+              <span className="text-xs text-slate-500 group-hover:text-[#0077b5] font-medium">
                 {t.hero.linkedin}
               </span>
             </motion.a>
 
-            {/* Email */}
             <motion.a
               href="mailto:sa888e@gmail.com"
               whileHover={{ scale: 1.1, y: -5 }}
               className="flex flex-col items-center gap-2 group"
             >
-              <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg shadow-slate-200/50 dark:shadow-none group-hover:border-[#ea4335] group-hover:shadow-[#ea4335]/30 transition-all">
-                <Mail size={28} className="text-slate-500 dark:text-slate-400 group-hover:text-[#ea4335] transition-colors" />
+              <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg group-hover:border-[#ea4335] group-hover:shadow-[#ea4335]/30 transition-all">
+                <Mail size={28} className="text-slate-500 group-hover:text-[#ea4335]" />
               </div>
-              <span className="text-xs text-slate-500 dark:text-slate-500 group-hover:text-[#ea4335] transition-colors font-medium">
+              <span className="text-xs text-slate-500 group-hover:text-[#ea4335] font-medium">
                 {t.hero.email}
               </span>
             </motion.a>
 
-            {/* Phone */}
             <motion.a
               href="tel:0571441777"
               whileHover={{ scale: 1.1, y: -5 }}
               className="flex flex-col items-center gap-2 group"
             >
-              <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg shadow-slate-200/50 dark:shadow-none group-hover:border-emerald-500 group-hover:shadow-emerald-500/30 transition-all">
-                <Phone size={28} className="text-slate-500 dark:text-slate-400 group-hover:text-emerald-500 transition-colors" />
+              <div className="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg group-hover:border-emerald-500 group-hover:shadow-emerald-500/30 transition-all">
+                <Phone size={28} className="text-slate-500 group-hover:text-emerald-500" />
               </div>
-              <span className="text-xs text-slate-500 dark:text-slate-500 group-hover:text-emerald-500 transition-colors font-medium dir-ltr">
+              <span className="text-xs text-slate-500 group-hover:text-emerald-500 font-medium">
                 {t.hero.phone}
               </span>
             </motion.a>
           </div>
 
-          {/* CV Buttons */}
-          <div className="flex justify-center gap-4 mt-6">
-
-            {/* زر استعراض السيرة */}
-            <motion.a
-              href="/cv.pdf"
+          {/* Resume Buttons */}
+          <div className="flex justify-center gap-4">
+            {/* VIEW */}
+            <a
+              href={`${import.meta.env.BASE_URL}cv.pdf`}
               target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-emerald-600/30 transition-all"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-bold shadow-lg transition-all"
             >
               استعراض السيرة الذاتية
-            </motion.a>
+            </a>
 
-            {/* زر تحميل السيرة */}
-            <motion.a
-              href="/cv.pdf"
+            {/* DOWNLOAD */}
+            <a
+              href={`${import.meta.env.BASE_URL}cv.pdf`}
               download="Saad-Fuhaid-CV.pdf"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-8 py-3 rounded-full font-bold border border-slate-300 dark:border-slate-600 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all"
+              className="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 px-8 py-3 rounded-full font-bold shadow-lg transition-all"
             >
-              تحميل السيرة الذاتية
-            </motion.a>
-
+              تنزيل السيرة الذاتية
+            </a>
           </div>
-
         </motion.div>
       </div>
 
-      {/* Arrow Animation */}
+      {/* Arrow Down */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
@@ -144,7 +134,6 @@ const Hero: React.FC = () => {
       >
         <ArrowDown size={32} />
       </motion.div>
-
     </section>
   );
 };
